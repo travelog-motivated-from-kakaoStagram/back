@@ -3,8 +3,7 @@ import * as tools from '../utils/exception-tools.js';
 
 const addComment = async (req, res, next) => {
   try {
-    tools.isHeaderJSON(req.body);
-
+    tools.isHeaderJSON(req, res);
     const userId = req.user.id;
     const postId = Number(req.params.postId);
     const { content } = req.body;

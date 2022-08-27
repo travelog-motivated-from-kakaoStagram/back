@@ -3,8 +3,7 @@ import * as tools from '../utils/exception-tools.js';
 
 const addBookmark = async (req, res, next) => {
   try {
-    tools.isHeaderJSON(req.body);
-
+    tools.isHeaderJSON(req, res);
     const userId = req.user.id; // jwtStrategy에서 토큰을 복호화해 나온 userId로 user찾아옴
     const {
       bookmarkName,
@@ -48,8 +47,7 @@ const addBookmark = async (req, res, next) => {
 
 const addBookmarks = async (req, res, next) => {
   try {
-    tools.isHeaderJSON(req.body);
-
+    tools.isHeaderJSON(req, res);
     const userId = req.user.id;
     const bookmarkName = req.body.bookmarkName;
     const inputArray = req.body.data;

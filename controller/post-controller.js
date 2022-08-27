@@ -3,8 +3,7 @@ import * as tools from '../utils/exception-tools.js';
 
 const addPost = async (req, res, next) => {
   try {
-    tools.isHeaderJSON(req.body);
-
+    tools.isHeaderJSON(req, res);
     const userId = req.user.id;
     const {
       title,
@@ -72,8 +71,7 @@ const getPosts = async (req, res, next) => {
 
 const updatePostById = async (req, res, next) => {
   try {
-    tools.isHeaderJSON(req.body);
-
+    tools.isHeaderJSON(req, res);
     const postId = Number(req.params.postId);
     const { title, content, mainImg, flagHideYN, markedData, cateCity, tag } =
       req.body;

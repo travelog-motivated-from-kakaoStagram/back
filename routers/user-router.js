@@ -90,8 +90,7 @@ userRouter.put(
   '/:userId',
   /*loginRequired,*/ async function (req, res, next) {
     try {
-      tools.isHeaderJSON(req.body);
-
+      tools.isHeaderJSON(req, res);
       const userId = req.params.userId;
       // body data 로부터 업데이트할 사용자 정보를 추출함.
       const { address, phoneNumber } = req.body;
@@ -121,8 +120,7 @@ userRouter.post(
   '/role',
   /*loginRequired,*/ async function (req, res, next) {
     try {
-      tools.isHeaderJSON(req.body);
-
+      tools.isHeaderJSON(req, res);
       const userRole = await req.currentUserRole;
       if (userRole !== 'admin') {
         console.log(`${userRole}의 전체 권한 부여 요청이 거부됨`);

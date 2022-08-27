@@ -3,8 +3,7 @@ import * as tools from '../utils/exception-tools.js';
 
 const addUser = async (req, res, next) => {
   try {
-    tools.isHeaderJSON(req.body);
-
+    tools.isHeaderJSON(req, res);
     const { email, password, name, nickname, address, role, age } = req.body;
 
     const userInfo = {
@@ -101,8 +100,7 @@ const delUserById = async (req, res, next) => {
 
 const updateUserById = async (req, res, next) => {
   try {
-    tools.isHeaderJSON(req.body);
-
+    tools.isHeaderJSON(req, res);
     const userId = Number(req.params.userId);
     const {
       email,
